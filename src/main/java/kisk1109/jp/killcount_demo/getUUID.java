@@ -10,13 +10,14 @@ import java.util.UUID;
 public class getUUID implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
         Player player = (Player)sender;
         UUID getid = player.getUniqueId();
         String getuuid = player.getUniqueId().toString();
 
 
-                sender.sendMessage(getuuid);
-                return true;
+        sender.sendMessage(getuuid);
+        return true;
     }
 
 }
