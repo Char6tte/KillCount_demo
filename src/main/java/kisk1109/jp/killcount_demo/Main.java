@@ -40,25 +40,14 @@ public final class Main extends JavaPlugin implements Listener {
             // データを読み取れなかった場合はオブジェクトを新規作成
             subjugation = new SubjugationInfo();
         }
-
+        //config用
         saveDefaultConfig();
         FileConfiguration config = getConfig();
-
+        //コマンドクラス分割
         getCommand("getuuid").setExecutor(new getUUID());
         // イベントリスナーの登録
         getServer().getPluginManager().registerEvents(this, this);
-
-
     }
-
-    @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-
-
-        sender.sendMessage(getConfig().getString("Massage"));
-        return true;
-    }
-
 
     /**
      * プラグインが無効化されるとき呼び出される
@@ -69,8 +58,8 @@ public final class Main extends JavaPlugin implements Listener {
         ClearAllBar();
     }
 
-    // UUID getid = killer.getUniqueId();
-    //    // String getuuid = killer.getUniqueId().toString();
+    //UUID getid = killer.getUniqueId();
+    //String getuuid = killer.getUniqueId().toString();
 
     /**
      * エンティティが死亡するときに呼ばれる
