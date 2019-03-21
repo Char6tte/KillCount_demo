@@ -1,0 +1,8 @@
+name: KillCount_demo
+version: ${project.version}
+main: kisk1109.jp.killcount_demo.Main
+
+commands:
+  getuuid:
+  setmax:
+  removekillcount:
