@@ -15,7 +15,6 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.UUID;
 
 public final class Main extends JavaPlugin implements Listener {
 
