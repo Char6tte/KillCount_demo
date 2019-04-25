@@ -130,4 +130,9 @@ public final class Main extends JavaPlugin implements Listener {
         sportc.zonmbie.setProgress(subjugation.getMax() / subjugation.getZombie());
         ShowAllPlayer();
     }
+
+    public void GUI(){
+
+    }
+
 }
