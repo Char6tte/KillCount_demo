@@ -66,4 +66,8 @@ public class GUI implements Listener {
             // Using slots click is a best option for your inventory click's
             if (e.getRawSlot() == 10) p.sendMessage("You clicked at slot " + 10);
         }
+
+        public void test(){
+
+        }
 }
