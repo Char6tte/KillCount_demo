@@ -2,6 +2,9 @@ package kisk1109.jp.killcount_demo;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
@@ -10,10 +13,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-
-
 
 
 public final class Main extends JavaPlugin implements Listener {
@@ -24,8 +24,7 @@ public final class Main extends JavaPlugin implements Listener {
     public SubjugationInfo subjugation = null;
 
     sportC sportc = new sportC(this);
-    CustomConfig customconfig = new CustomConfig(this);
-    CustomConfig config,message;
+
 
     /**
      * プラグインが有効化されるとき呼び出される
@@ -41,14 +40,23 @@ public final class Main extends JavaPlugin implements Listener {
             // データを読み取れなかった場合はオブジェクトを新規作成
             subjugation = new SubjugationInfo();
         }
-        //config用
-        customconfig.saveDefaultConfig();
-        config = new CustomConfig(this,"config.yml");
 
-        //コマンドクラス分割
+        saveDefaultConfig();
+        FileConfiguration config = getConfig();
+
         getCommand("getuuid").setExecutor(new getUUID());
         // イベントリスナーの登録
         getServer().getPluginManager().registerEvents(this, this);
+
+
+    }
+
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+
+
+        sender.sendMessage(getConfig().getString("Massage"));
+        return true;
     }
 
 
@@ -61,8 +69,9 @@ public final class Main extends JavaPlugin implements Listener {
         ClearAllBar();
     }
 
-    //UUID getid = killer.getUniqueId();
-    //String getuuid = killer.getUniqueId().toString();
+    // UUID getid = killer.getUniqueId();
+    //    // String getuuid = killer.getUniqueId().toString();
+
     /**
      * エンティティが死亡するときに呼ばれる
      *
