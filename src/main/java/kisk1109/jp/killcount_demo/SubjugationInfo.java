@@ -20,6 +20,8 @@ public class SubjugationInfo implements ConfigurationSerializable {
         /** スケルトンが倒された数を保存するキー */
         static final private String SKELETON="skeleton";
 
+        static final private String BAT="bat";
+
         static final private String MAX="max";
 
         /** ゾンビが倒された数 */
@@ -30,6 +32,8 @@ public class SubjugationInfo implements ConfigurationSerializable {
 
         /** スケルトンが倒された数 */
         public int skeleton=0;
+
+        public int bat=0;
 
         public int max=10000;
 
@@ -67,12 +71,21 @@ public class SubjugationInfo implements ConfigurationSerializable {
             return skeleton;
         }
 
-        public void setMax(int max){ this.max=max; }
-
         /** スケルトンが倒された数を取得する */
         public int getMax(){
         return max;
     }
+
+        //取得
+        public void setBat(int bat) {this.bat=bat;}
+
+        /** スケルトンが倒された数を取得する */
+        public int getBat(){
+        return bat;
+    }
+
+        public void setMax(int max){ this.max=max; }
+
 
         /**
          * 情報をシリアライズする
@@ -88,6 +101,7 @@ public class SubjugationInfo implements ConfigurationSerializable {
             map.put(ZOMBIE,zombie);
             map.put(CREEPER,creeper);
             map.put(SKELETON,skeleton);
+            map.put(BAT,bat);
             map.put(MAX,max);
 
             Bukkit.broadcastMessage("test: "+map);
@@ -114,6 +128,7 @@ public class SubjugationInfo implements ConfigurationSerializable {
             subjugation.setZombie(Integer.parseInt(map.get(ZOMBIE).toString()));
             subjugation.setCreeper(Integer.parseInt(map.get(CREEPER).toString()));
             subjugation.setSkeleton(Integer.parseInt(map.get(SKELETON).toString()));
+            subjugation.setBat(Integer.parseInt(map.get(BAT).toString()));
             subjugation.setMax(Integer.parseInt(map.get(MAX).toString()));
 
             //オブジェクトを返す
